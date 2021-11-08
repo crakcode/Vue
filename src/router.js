@@ -7,7 +7,8 @@ import SApp from "./views/SApp";
 import Vuex from "./views/Vuex";
 import User from "./views/User";
 import Pratice from "./Pratice";
-
+import Read from "./components/Read";
+import Create from "./components/Create";
 
 Vue.use(VueRouter);
 
@@ -22,6 +23,8 @@ const router=new VueRouter({
         {path:"/todo",component:SApp},
         {path:"/vuex",component:Vuex},
         {path:"/user",component:User},
+        {path:"/read",component:Read},
+        {path:"/create",component:Create},
     ]
 });
 
