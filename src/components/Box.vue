@@ -4,7 +4,6 @@
        v-bind:style="{ width: w + 'px', height: h + 'px' }">
   </div>
          <button v-on:click="getColor"> ss</button>
-
 </div>
 </template>
  
