@@ -1,11 +1,12 @@
 <template>
     <div>
     <ul>ss
-        <li v-if="items.writer">
-            {{items.writer}}
-        </li>
-        <button @click="fetchData">sss</button>
-
+    <li :key="index" v-for="(item,index) in items" @click="ClickEvent(index)" >
+        {{ item.writer }} {{index}}
+        {{ item.email }}  
+        {{ item.website }}
+    </li>
+        <img src="https://view01.wemep.co.kr/wmp-board/59/202010/20/x9d84mhzatle_faq.jpg"/>
     </ul>
     </div>
 </template>
@@ -15,33 +16,34 @@ export default {
     name:'Axios',
     data(){
         return{
-            items:{
-                writer:""
-            }
+            items:[]
         }
     },
+    created() {
+      this.getData()
+    },
     methods:{
-        fetchData(){
-            axios.get('https://jsonplaceholder.typicode.com/users/').
-            then(function(response){
-                    console.log(response.data);
-                    this.items=response.data;
-                })
-            .catch(function(error){
-                console.log(error);
-            })
-        },
+        // fetchData(){
+        //     axios.get('https://jsonplaceholder.typicode.com/users/').
+        //     then((response)=>{
+        //             this.items=response.data;
+        //             console.log(this.items);
+        //         })
+        //     .catch(function(error){
+        //         console.log(error);
+        //     })
+        // },
 
         async getData(){
             const response = await axios.get('https://jsonplaceholder.typicode.com/users/')
+            this.items=response.data;
             console.log(response)
+        },
+        ClickEvent(index){
+            console.log(this.itmes[index]);
         }
 
-    },
-    created() {
-      this.fetchData()
-    },
-
+    }
 }
 
 </script>

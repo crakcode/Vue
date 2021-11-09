@@ -9,7 +9,7 @@ import Pratice from "./Pratice";
 import Read from "./components/Read";
 import Create from "./components/Create";
 import Detail from "./components/Detail";
-import ss from "./components/Axios";
+import rest from "./components/Axios";
 
 Vue.use(VueRouter);
 
@@ -17,7 +17,7 @@ const router=new VueRouter({
     mode:"history",
     routes:
     [
-        {path:"/ss",component:ss},
+        {path:"/rest",component:rest},
         {path:"/",component:Read},
         {path:"/practice",component:Pratice},
         {path:"*",component:ErrorPage},
