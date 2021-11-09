@@ -4,6 +4,8 @@
         <input v-model="title" placeholder="제목"/>
         <textarea v-model="content" placeholder="내용"/>
         <button @click="index!==undefined?update():write()">{{index!==undefined? '수정':'작성'}}</button>
+
+
     </div>
 </template>
 <script>
@@ -28,13 +30,13 @@ export default {
                 title:this.title,
                 content:this.content
             })
-            this.$router.push({path:'/'})
+            this.$router.push({path:'/read'})
         },
         update(){
             data[this.index].writer=this.writer
             data[this.index].title=this.title
             data[this.index].content=this.content
-            this.$router.push({path:'/'})
+            this.$router.push({path: '/'})
         }
     }
 
