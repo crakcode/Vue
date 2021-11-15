@@ -10,6 +10,9 @@ import Read from "./components/Read";
 import Create from "./components/Create";
 import Detail from "./components/Detail";
 import rest from "./components/Axios";
+import restdetail from "./components/Axiosdetail";
+import Get from "./components/Get";
+import Post from "./components/Post";
 
 Vue.use(VueRouter);
 
@@ -18,6 +21,9 @@ const router=new VueRouter({
     routes:
     [
         {path:"/rest",component:rest},
+        {path:"/rest/detail/:index",name:"restdetail",component:restdetail},
+        {path:"/get",name:"get",component:Get},
+        {path:"/post",name:"post",component:Post},
         {path:"/",component:Read},
         {path:"/practice",component:Pratice},
         {path:"*",component:ErrorPage},

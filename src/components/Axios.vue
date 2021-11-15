@@ -37,10 +37,17 @@ export default {
         async getData(){
             const response = await axios.get('https://jsonplaceholder.typicode.com/users/')
             this.items=response.data;
+            console.log(this.items[0])
             console.log(response)
         },
         ClickEvent(index){
-            console.log(this.itmes[index]);
+            this.$router.push({
+                name: 'restdetail',
+                params: {
+                    index: index
+                }
+            })
+            console.log(index);
         }
 
     }
