@@ -1,7 +1,7 @@
 <template>
 <div>
         <div>
-id,email,name,password
+id,email,name,passwordW
             <input v-model="email" placeholder="이메일"/> 
             <input v-model="name" placeholder="이름"/> 
             <input v-model="password" placeholder="비밀번호"/> 
