@@ -15,7 +15,7 @@ id,email,name,passwordW
         </div>
         <div>
             <input v-model="token" placeholder="토큰"/> 
-            <button @click="authSource">토큰 보내기</button>
+            <button @click="authSource(token)">토큰 보내기</button>
 
         </div>
 </div>
@@ -60,14 +60,15 @@ export default {
             console.log(hello)
        },
 
-        async authSource(){
+        async authSource(token){
+            console.log(token)
             const instance = axios.create({
                 baseURL: 'http://localhost:8080/',
                   headers: {
-                "X-AUTH-TOKEN":this.token
+                "X-AUTH-TOKEN":token
                 },
             });
-            const response=await instance.post('http://localhost:8080/user/api')
+            const response=await instance.post('http://192.168.143.237:8080/user/api')
             // const hello= response.status==200?response.data:"error";
             console.log(response)
             // console.log(hello)
