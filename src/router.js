@@ -5,6 +5,7 @@ import ErrorPage from "./views/ErrorPage";
 import Axios from "./views/Axios";
 import Vuex from "./views/Vuex";
 import User from "./views/User";
+import Crud from "./views/Crud";
 import Pratice from "./Pratice";
 import Read from "./components/Read";
 import Create from "./components/Create";
@@ -31,6 +32,7 @@ const router=new VueRouter({
         // {path:"/todo",component:SApp},
         {path:"/vuex",component:Vuex},
         {path:"/user",component:User},
+        {path:"/Crud",component:Crud},
         {path:"/create/:contentId?",name:'Create',component:Create},
         {path:"/detail/:contentId",name:'Detail',component:Detail},
     ]

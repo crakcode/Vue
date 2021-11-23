@@ -14,10 +14,15 @@ id,email,name,passwordW
             <button @click="login">회원가입</button>
         </div>
         <div>
-            <input v-model="token" placeholder="토큰"/> 
-            <button @click="authSource(token)">토큰 보내기</button>
+            <button @click="authSource()">토큰 보내기</button>
 
         </div>
+
+        <div>
+            <button @click="add_token()">토큰 세션에 저장</button>
+
+        </div>
+
 </div>
 </template>
 
@@ -26,13 +31,11 @@ import axios from 'axios';
 export default {
     name:"Post",
     data(){
-
         return {
             id:this.id,
             email:"",
             name:"",
             password:"",
-            token:"",
         }
     },
 
@@ -55,12 +58,11 @@ export default {
                email:this.email,
                name:this.name,
                password:this.password, })
-            const hello= response.status==200?response.data:"error";
-            console.log(response)
-            console.log(hello)
+            const token= response.status==200?response.data:"error";
+           sessionStorage.setItem("token",token);
        },
-
-        async authSource(token){
+        async authSource(){
+            var token=sessionStorage.getItem("token");
             console.log(token)
             const instance = axios.create({
                 baseURL: 'http://localhost:8080/',
@@ -69,10 +71,21 @@ export default {
                 },
             });
             const response=await instance.post('http://192.168.143.237:8080/user/api')
-            // const hello= response.status==200?response.data:"error";
             console.log(response)
-            // console.log(hello)
        },
+       add_token(){
+           sessionStorage.setItem("domain", "webisfree.com");
+            var ss=sessionStorage.getItem("domain");
+           console.log(ss)
+
+       }
+       ,
+        get_token(){
+           var ss=sessionStorage.getItem("domain");
+           console.log(ss)
+
+       }
+
 
 
 
