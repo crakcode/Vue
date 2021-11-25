@@ -18,10 +18,7 @@
             <input v-model="score" placeholder="강의 제목"/> 
             <input v-model="comment" placeholder="강의 내용"/> 
             <button @click="review()">글 작성완료</button>
-
-
     <div>
-    
     </div>
 
     </div>
@@ -68,7 +65,6 @@ export default {
                score:this.score,
                comment:this.comment})
         }
-
     }
 
 };
