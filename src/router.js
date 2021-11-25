@@ -6,6 +6,8 @@ import Axios from "./views/Axios";
 import Vuex from "./views/Vuex";
 import User from "./views/User";
 import Crud from "./views/Crud";
+import Login from "./views/Login";
+import Ui from "./views/Ui";
 import Pratice from "./Pratice";
 import Read from "./components/Read";
 import Create from "./components/Create";
@@ -31,8 +33,10 @@ const router=new VueRouter({
         {path:"/axios",component:Axios},
         // {path:"/todo",component:SApp},
         {path:"/vuex",component:Vuex},
+        {path:"/login",component:Login},
         {path:"/user",component:User},
         {path:"/Crud",component:Crud},
+        {path:"/ui",component:Ui},
         {path:"/create/:contentId?",name:'Create',component:Create},
         {path:"/detail/:contentId",name:'Detail',component:Detail},
     ]
