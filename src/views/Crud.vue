@@ -28,10 +28,12 @@
 
     <div>
         강의 추가하기 이미지 까지 추가하여 
-            <input v-model="l_id" placeholder="강의 번호"/> 
-            <input v-model="score" placeholder="강의 제목"/> 
-            <input v-model="comment" placeholder="강의 내용"/> 
-            <button @click="review()">글 작성완료</button>
+    <form method="post" action="http://localhost:8080/api/v1/lecture/file" enctype="multipart/form-data">
+        <input multiple type="file" name="files">
+
+            <input v-model="title" placeholder="강의 제목"/> 
+            <input v-model="content" placeholder="강의 내용"/> 
+            <button @click="write()">글 작성완료</button>
     </div>
 
 
