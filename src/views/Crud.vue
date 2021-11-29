@@ -20,6 +20,20 @@
             <button @click="review()">글 작성완료</button>
     <div>
     </div>
+    <div>
+
+        <button @click="next()">강의목록</button>
+
+    </div>
+
+    <div>
+        강의 추가하기 이미지 까지 추가하여 
+            <input v-model="l_id" placeholder="강의 번호"/> 
+            <input v-model="score" placeholder="강의 제목"/> 
+            <input v-model="comment" placeholder="강의 내용"/> 
+            <button @click="review()">글 작성완료</button>
+    </div>
+
 
     </div>
 </div>
@@ -64,6 +78,9 @@ export default {
             instance.post('http://localhost:8080/api/v1/review/write/'+this.l_id,{ 
                score:this.score,
                comment:this.comment})
+        },
+        next(){
+            this.$router.push({path:'axios'})
         }
     }
 

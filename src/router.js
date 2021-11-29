@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import ErrorPage from "./views/ErrorPage";
 // import Home from "./views/Home";
-import Axios from "./views/Axios";
+import Axios from "./components/Axios";
 import Vuex from "./views/Vuex";
 import User from "./views/User";
 import Crud from "./views/Crud";

@@ -22,6 +22,9 @@ id,email,name,passwordW
             <button @click="add_token()">토큰 세션에 저장</button>
 
         </div>
+        <div>
+            <img src="http://localhost:8080/static/images/ps.png">          
+        </div>
 
 </div>
 </template>
