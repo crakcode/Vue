@@ -10,14 +10,13 @@
         
         <v-card class="mx-auto" max-width="344"> 
         <v-card-text> 
-            <p class="display-1 text--primary">로그인 화면</p> 
+            <p class="display-1 text--primary">회원가입</p> 
             <div>
                 <v-text-field label="아이디" v-model="email"></v-text-field>
+                <v-text-field label="이름" v-model="name"></v-text-field>
                 <v-text-field label="비밀번호" v-model="password"></v-text-field>
                 <br/>
 
-                <v-btn block @click="login">로그인</v-btn>
-                <br/>
                 <v-btn block @click="register()">회원가입</v-btn>
             </div>
         </v-card-text> 
@@ -35,7 +34,7 @@
 import axios from 'axios';
 
 export default {
-    name:"Post",
+    name:"Register",
     data(){
         return {
             id:this.id,
@@ -45,29 +44,25 @@ export default {
         }
     },
     methods:{
-        async login(){
-            const instance = axios.create({
-                baseURL: 'http://localhost:3000/',
-                  headers: {
-                Authorization: 'test1234', // header의 속성
-                },
-            });
-            try{
-                const response=await instance.post('http://localhost:8080/login/',{ 
-                    email:this.email,
-                    name:this.name,
-                    password:this.password, })
-                const token= response.status==200?response.data:"error";
-                sessionStorage.setItem("token",token);
-                this.$router.push({path:'Board'})
-            }catch (error){
-                alert("error");
-                console.log("error")
+       async register(){
+            var response=await axios.post('http://localhost:8080/check/'+this.email)
+            if (response.data==true ){
+                alert("email is duplicated so choose other email")
+            }
+            else{
+                try{
+                    axios.post('http://localhost:8080/join/',{ 
+                        email:this.email,
+                        name:this.name,
+                        password:this.password, })
+                    this.$router.push({path:'Login'})
+                }catch{
+                    alert("error")
+                }
+                
+
             }
        },
-       register(){
-           this.$router.push({path:'register'})
-       }
     }
 
 }

@@ -28,12 +28,12 @@
 
     <div>
         강의 추가하기 이미지 까지 추가하여 
-    <form method="post" action="http://localhost:8080/api/v1/lecture/file" enctype="multipart/form-data">
-        <input multiple type="file" name="files">
-
+        <form>
+        <input multiple ref="serveyImage" type="file">
             <input v-model="title" placeholder="강의 제목"/> 
             <input v-model="content" placeholder="강의 내용"/> 
-            <button @click="write()">글 작성완료</button>
+        <button @click="[onInputImage(),helllo()]">보내기</button>
+        </form>
     </div>
 
 
@@ -53,7 +53,12 @@ export default {
             content:"",
             score:0,
             comment:"",
-            l_id:""
+            l_id:"",
+            input:{
+                title:"",
+                content:"",
+                imeage:""
+            },
         }
     },
     methods:{
@@ -83,6 +88,22 @@ export default {
         },
         next(){
             this.$router.push({path:'axios'})
+        },
+        onInputImage(){
+            // this.input.image=this.$refs.serveyImage.files
+            console.log(this.input)
+        },
+        helllo(){
+            console.log("ss")
+        },
+        fileupload(){
+            this.input.image=this.$refs.serveyImage.files
+            axios.post('http://localhost:8080/api/v1/lecture/file',this.input.image, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+
+            })
         }
     }
 
